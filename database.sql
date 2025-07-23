@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS listStagiaires;
+USE listStagiaires;
+
+CREATE TABLE stagiaires (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(20) NOT NULL,
+    age INT NOT NULL,
+    niveau VARCHAR(20) NOT NULL
+);
