@@ -26,7 +26,7 @@
         $stmt->bindParam(':niveau', $niveau);
         return $stmt->execute();
 
-        header("Location: view/layout.php");
+        header("Location: ../view/layout.php");
         exit();
     }
 
@@ -37,17 +37,17 @@
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
 
-        header("Location: view/layout.php");
+        header("Location: ../view/layout.php");
         exit();
     }
 
-    function updateStagiaires($id, $nom, $prenom, $email) {
+    function updateStagiaires($id, $nom, $age, $niveau) {
         global $pdo;
-        $query = "UPDATE stagiaires SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id";
+        $query = "UPDATE stagiaires SET nom = :nom, age = :age, niveau = :niveau WHERE id = :id";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':niveau', $niveau);
         return $stmt->execute();
     }

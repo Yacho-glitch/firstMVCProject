@@ -37,8 +37,7 @@
                     if (insertStagiaires($nom, $age, $niveau)) {
                         echo "<p class='text-green-500'>Stagiaire added successfully!</p>";
 
-                        header("Location: ../view/layout.php");
-                        exit();
+                    
                     } else {
                         echo "<p class='text-red-500'>Error adding stagiaire.</p>";
                     }
