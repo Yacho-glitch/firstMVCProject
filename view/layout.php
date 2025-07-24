@@ -24,11 +24,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                     require_once __DIR__ . '/../model/model.php';
-                    $stagiaires = selectStagiaires();
-                    $otherstagiaires = deleteStagiaires($stagiaires['id']);
 
+                    if (isset($_GET['delete_id'])) {
+                        deleteStagiaires($_GET['delete_id']);
+                        header("Location: layout.php");
+                        exit();
+                        // $stagiaires = array_filter($stagiaires, function($stagiaire) use ($id) {
+                            //     return $stagiaire['id'] == $id;
+                            // });
+                    }
+                        
+                    $stagiaires = selectStagiaires();
                     foreach($stagiaires as $stagiaire){
                         echo "
                         <tr class='hover:bg-gray-50 text-center'>
@@ -37,8 +45,8 @@
                             <td class='px-2 py-3'>{$stagiaire['age']}</td>
                             <td class='px-2 py-3'>{$stagiaire['niveau']}</td>
                             <td>
-                                <a href='update.php' class='p-2 bg-sky-600 text-white rounded-md hover:bg-blue-700'>Update</a>
-                                <a href='../model/model.php?id={$otherstagiaires['id']}' class='p-2 bg-red-600 text-white rounded-md hover:bg-red-700'>Delete</a>
+                                <a href='update.php?id={$stagiaire['id']}' class='p-2 bg-sky-600 text-white rounded-md hover:bg-blue-700'>Update</a>
+                                <a href='../model/model.php?delete_id={$stagiaire['id']}' class='p-2 bg-red-600 text-white rounded-md hover:bg-red-700'>Delete</a>
                             </td>
                         </tr>
                     ";
