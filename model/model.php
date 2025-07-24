@@ -9,6 +9,12 @@
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
+    if (isset($_GET['delete_id'])) {
+        deleteStagiaires($_GET['delete_id']);
+        header("Location: ../view/layout.php");
+        exit();
+    }
+
     function selectStagiaires() {
         global $pdo;
         $query = "SELECT * FROM stagiaires";
@@ -42,12 +48,12 @@
         $stmt->bindParam(':id', $id);
         $success = $stmt->execute();
 
-        if ($success) {
-            header("Location: ../view/layout.php");
-            exit();
-        } else {
-            echo "<p class='text-red-500'>Error deleting stagiaire.</p>";
-        }
+        // if ($success) {
+        //     header("Location: ../view/layout.php");
+        //     exit();
+        // } else {
+        //     echo "<p class='text-red-500'>Error deleting stagiaire.</p>";
+        // }
         return $success;
     }
 

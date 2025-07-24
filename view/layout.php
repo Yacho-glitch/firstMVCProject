@@ -45,8 +45,8 @@
                             <td class='px-2 py-3'>{$stagiaire['age']}</td>
                             <td class='px-2 py-3'>{$stagiaire['niveau']}</td>
                             <td>
-                                <a href='update.php?id={$stagiaire['id']}' class='p-2 bg-sky-600 text-white rounded-md hover:bg-blue-700'>Update</a>
-                                <a href='../model/model.php?delete_id={$stagiaire['id']}' class='p-2 bg-red-600 text-white rounded-md hover:bg-red-700'>Delete</a>
+                                <a href='formTwo.php?id={$stagiaire['id']}' class='p-2 bg-sky-600 text-white rounded-md hover:bg-blue-700'>Update</a>
+                                <a href='layout.php?delete_id={$stagiaire['id']}' class='p-2 bg-red-600 text-white rounded-md hover:bg-red-700'>Delete</a>
                             </td>
                         </tr>
                     ";
@@ -58,7 +58,7 @@
     </main>
     <div class="container">
         <div class="flex justify-start mt-4 ml-4">
-            <a href="form.php" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-green-700">Add Stagiaire</a>
+            <a href="form.php" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">Add Stagiaire</a>
         </div>
     </div>
 </body>
