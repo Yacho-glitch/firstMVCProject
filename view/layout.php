@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,18 +15,38 @@
             <!-- Main content goes here -->
              <table class="min-w-full bg-white border border-gray-200">
                 <thead>
-                    <tr class="bg-gray-100 text-gray-700 p-6">
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Age</th>
-                        <th>Niveau</th>
-                        <th>Actions</th>
+                    <tr class="bg-gray-100 text-gray-700">
+                        <th class="px-2 py-3">ID</th>
+                        <th class="px-2 py-3">Nom</th>
+                        <th class="px-2 py-3">Age</th>
+                        <th class="px-2 py-3">Niveau</th>
+                        <th class="px-2 py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-gray-50 text-center">
-                       
+                    <?php
+                    require_once __DIR__ . '/../model/model.php';
+                    $stagiaires = selectStagiaires();
+                    $otherstagiaires = deleteStagiaires($stagiaires['id']);
+
+                    foreach($stagiaires as $stagiaire){
+                        echo "
+                        <tr class='hover:bg-gray-50 text-center'>
+                            <td class='px-2 py-3'>{$stagiaire['id']}</td>
+                            <td class='px-2 py-3'>{$stagiaire['nom']}</td>
+                            <td class='px-2 py-3'>{$stagiaire['age']}</td>
+                            <td class='px-2 py-3'>{$stagiaire['niveau']}</td>
+                            <td>
+                                <a href='update.php' class='p-2 bg-sky-600 text-white rounded-md hover:bg-blue-700'>Update</a>
+                                <a href='../model/model.php?id={$otherstagiaires['id']}' class='p-2 bg-red-600 text-white rounded-md hover:bg-red-700'>Delete</a>
+                            </td>
+                        </tr>
+                    ";
+                }
+                ?>
+                </tbody>
              </table>
         </div>
+    </main>
 </body>
 </html>

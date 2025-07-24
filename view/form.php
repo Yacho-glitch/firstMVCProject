@@ -12,15 +12,15 @@
             <h2 class="text-2xl font-bold mb-4">Add New Stagiaire</h2>
             <div class="mb-4">
                 <label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
-                <input type="text" id="nom" name="nom" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <input type="text" id="nom" name="nom" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-3 py-3">
             </div>
             <div class="mb-4">
                 <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
-                <input type="number" id="age" name="age" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <input type="number" id="age" name="age" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-3 py-3">
             </div>
             <div class="mb-4">
                 <label for="niveau" class="block text-sm font-medium text-gray-700">Niveau</label>
-                <input type="text" id="niveau" name="niveau" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <input type="text" id="niveau" name="niveau" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-3 py-3">
             </div>
             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Add Stagiaire</button>
 
