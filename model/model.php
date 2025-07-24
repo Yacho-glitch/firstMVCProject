@@ -17,10 +17,11 @@
 
     function selectStagiaires() {
         global $pdo;
-        $query = "SELECT * FROM stagiaires";
+        $query = "SELECT * FROM stagiaires WHERE id = :id";
         $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     function insertStagiaires($nom, $age, $niveau) {
