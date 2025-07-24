@@ -15,7 +15,7 @@
             <!-- Main content goes here -->
              <table class="min-w-full bg-white border border-gray-200">
                 <thead>
-                    <tr class="bg-gray-100 text-gray-700">
+                    <tr class="bg-gray-100 text-stone-950">
                         <th class="px-2 py-3">ID</th>
                         <th class="px-2 py-3">Nom</th>
                         <th class="px-2 py-3">Age</th>
@@ -56,5 +56,10 @@
              </table>
         </div>
     </main>
+    <div class="container">
+        <div class="flex justify-start mt-4 ml-4">
+            <a href="form.php" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-green-700">Add Stagiaire</a>
+        </div>
+    </div>
 </body>
 </html>
