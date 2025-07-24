@@ -17,11 +17,10 @@
 
     function selectStagiaires() {
         global $pdo;
-        $query = "SELECT * FROM stagiaires WHERE id = :id";
+        $query = "SELECT * FROM stagiaires";
         $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':id', $id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function insertStagiaires($nom, $age, $niveau) {
@@ -75,4 +74,13 @@
             echo "<p class='text-red-500'>Error updating stagiaire.</p>";
         }
         return $success;
+    }
+
+    function selectStagiaireById($id) {
+        global $pdo;
+        $query = "SELECT * FROM stagiaires WHERE id = :id";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
