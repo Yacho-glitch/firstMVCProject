@@ -24,10 +24,15 @@
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':niveau', $niveau);
-        return $stmt->execute();
+        $success = $stmt->execute();
 
-        header("Location: ../view/layout.php");
-        exit();
+        if ($success) {
+            header("Location: ../view/layout.php");
+            exit();
+        } else {
+            echo "<p class='text-red-500'>Error adding stagiaire.</p>";
+        }
+        return $success;
     }
 
     function deleteStagiaires($id) {
@@ -35,10 +40,15 @@
         $query = "DELETE FROM stagiaires WHERE id = :id";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $success = $stmt->execute();
 
-        header("Location: ../view/layout.php");
-        exit();
+        if ($success) {
+            header("Location: ../view/layout.php");
+            exit();
+        } else {
+            echo "<p class='text-red-500'>Error deleting stagiaire.</p>";
+        }
+        return $success;
     }
 
     function updateStagiaires($id, $nom, $age, $niveau) {
@@ -49,5 +59,13 @@
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':niveau', $niveau);
-        return $stmt->execute();
+        $success = $stmt->execute();
+
+        if ($success) {
+            header("Location: ../view/layout.php");
+            exit();
+        } else {
+            echo "<p class='text-red-500'>Error updating stagiaire.</p>";
+        }
+        return $success;
     }
